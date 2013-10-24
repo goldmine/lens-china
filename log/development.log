@@ -1,0 +1,1632 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 18:08:59 +0800
+Processing by HomeController#index as HTML
+Dalli::Server#connect 127.0.0.1:11211
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m75.5904ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m24.0579ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m11.7140ms[0m)
+  Rendered topics/_topic.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.7696ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (580.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4132ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (2.2ms)
+  Rendered home/index.html.erb within layouts/application (912.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"custom_head_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4575ms[0m)
+  Rendered common/_user_nav.html.erb (16.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"footer_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5207ms[0m)
+Completed 200 OK in 6526ms (Views: 6409.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:09:13 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"node_ids_hide_in_topics_index"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.3633ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5209ms[0m)
+  Rendered topics/_node_info.html.erb (2.3ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4973ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.5ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3490ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (462.0ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4640ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (2.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"tips"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.2985ms[0m)
+  Rendered app/cells/topics/tips.html.erb (0.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"topic_index_sidebar_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.3948ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4668ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.4332ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2825ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (1.0ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (535.2ms)
+  Rendered topics/index.html.erb within layouts/application (618.9ms)
+  Rendered common/_user_nav.html.erb (2.2ms)
+Completed 200 OK in 714ms (Views: 701.9ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-23 18:10:17 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (21.9ms)
+  Rendered devise/shared/_links.erb (3.2ms)
+  Rendered account/new.html.erb within layouts/application (340.2ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 412ms (Views: 408.4ms)
+
+
+Started GET "/account/sign_in" for 127.0.0.1 at 2013-10-23 18:10:19 +0800
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (17.6ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 79ms (Views: 75.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m0.8762ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.3760ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"index_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5119ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m169.9760ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"index_html", "value"=>"<div class=\"box\" style=\"text-align:center;\">\n  <p><img alt=\"Big_logo\" src=\"/assets/big_logo.png\"></p>\n  <p></p>\n  <p>Ruby China Group， 致力于构建完善的 Ruby 中文社区。</p>\n  <p>功能正在完善中，欢迎 <a href=\"http://github.com/huacnlee/ruby-china\">贡献代码</a> 。</p>\n  <p>诚邀有激情的活跃 Ruby 爱好者参与维护社区，联系 <b style=\"color:#c00;\">lgn21st@gmail.com</b></p>\n</div>\n", "_id"=>1}] flags=[] ([32m0.1593ms[0m)
+Dalli::Server#connect 127.0.0.1:11211
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"wiki_index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m12.9550ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"wiki_index_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4594ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.3707ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"wiki_index_html", "value"=>"<div class=\"box\">\n  Wiki Home page.\n</div>\n", "_id"=>2}] flags=[] ([32m0.2117ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"footer_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6278ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"footer_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4740ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1902ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"footer_html", "value"=>"<p class=\"copyright\">\n &copy; Ruby China Group.\n</p>\n", "_id"=>3}] flags=[] ([32m0.1829ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"after_topic_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6664ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"after_topic_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4799ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1661ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"after_topic_html", "value"=>"<div class=\"share_links\">\n <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\"\">Tweet</a>\n <script type=\"text/javascript\" src=\"//platform.twitter.com/widgets.js\"></script>\n</div>\n", "_id"=>4}] flags=[] ([32m0.2034ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"before_topic_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6812ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"before_topic_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4332ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1311ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"before_topic_html", "value"=>"", "_id"=>5}] flags=[] ([32m0.4625ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"topic_index_sidebar_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6194ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"topic_index_sidebar_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.3922ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m0.9830ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"topic_index_sidebar_html", "value"=>"<div class=\"box\">\n  <h2>公告</h2>\n  <div class=\"content\">\n    Hello world.\n  </div>\n</div>\n\n<div class=\"box\">\n  <h2>置顶话题</h2>\n  <ul class=\"content\">\n    <li><a href=\"/topics/1\">Foo bar</a></li>\n  </ul>\n</div>\n", "_id"=>6}] flags=[] ([32m0.0958ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"site_index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7579ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"site_index_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5677ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1997ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"site_index_html", "value"=>"下面列出了基于 Ruby 语言开发的网站。如果你知道还有不在此列表的，请帮忙补充。\n", "_id"=>7}] flags=[] ([32m0.1280ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"custom_head_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4091ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"custom_head_html"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.2530ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m0.6557ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"custom_head_html", "value"=>"<link rel=\"dns-prefetch\" href=\"//assets.youhost.com\">\n", "_id"=>8}] flags=[] ([32m0.1066ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"node_ids_hide_in_topics_index"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6108ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"node_ids_hide_in_topics_index"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5047ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.2519ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"node_ids_hide_in_topics_index", "value"=>"", "_id"=>9}] flags=[] ([32m0.1898ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"new_topic_dropdown_node_ids"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6609ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"new_topic_dropdown_node_ids"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4847ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1938ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"new_topic_dropdown_node_ids", "value"=>"", "_id"=>10}] flags=[] ([32m0.2065ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"ban_words_on_reply"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5536ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"ban_words_on_reply"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4592ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1280ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"ban_words_on_reply", "value"=>"mark\n收藏\n顶\n赞\nup\n", "_id"=>11}] flags=[] ([32m0.1879ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"tips"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7086ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"tips"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5374ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.2100ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"tips", "value"=>"提示1\n提示2", "_id"=>12}] flags=[] ([32m0.3588ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"newbie_notices"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6356ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"key"=>"newbie_notices"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5193ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:site_configs}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.1373ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=site_configs documents=[{"key"=>"newbie_notices", "value"=>"<p>为提高社区质量，防止新人一来就发帖提问接触 Ruby 遇到的问题，新用户需要达到下面条件才可发帖：</p>\n    <ol style=\"color:#ad2b2d;\">\n      <li>注册时间超过一个月；</li>\n      <li>回帖数量必须达到 10 贴以上；</li>\n    </ol>\n    <p>请在新人阶段多浏览，看看其他老用户是如何在社区里面分享与解决问题的。</p>", "_id"=>13}] flags=[] ([32m0.2046ms[0m)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 18:18:01 +0800
+Processing by HomeController#index as HTML
+Dalli::Server#connect 127.0.0.1:11211
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m77.7481ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m1.3251ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.9427ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (525.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.7339ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (2.4ms)
+  Rendered home/index.html.erb within layouts/application (772.0ms)
+  Rendered common/_user_nav.html.erb (19.5ms)
+Completed 200 OK in 1330ms (Views: 1233.1ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:18:14 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6053ms[0m)
+  Rendered topics/_node_info.html.erb (2.0ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5534ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3886ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (329.6ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.5040ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (2.2ms)
+  Rendered app/cells/topics/tips.html.erb (0.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.5341ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2716ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.7284ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.9ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (359.5ms)
+  Rendered topics/index.html.erb within layouts/application (473.2ms)
+  Rendered common/_user_nav.html.erb (88.6ms)
+Completed 200 OK in 605ms (Views: 593.5ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:18:17 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.9267ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4032ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3662ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.9ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4303ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.4ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4957ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.3607ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.3176ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.5ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (26.3ms)
+  Rendered topics/index.html.erb within layouts/application (46.7ms)
+  Rendered common/_user_nav.html.erb (0.7ms)
+Completed 200 OK in 89ms (Views: 81.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 18:18:20 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6549ms[0m)
+  Rendered topics/_topic.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4482ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4086ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered home/index.html.erb within layouts/application (20.5ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 53ms (Views: 51.0ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-23 18:18:29 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (94.7ms)
+  Rendered devise/shared/_links.erb (2.9ms)
+  Rendered account/new.html.erb within layouts/application (203.4ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 241ms (Views: 236.9ms)
+
+
+Started GET "/account/sign_in" for 127.0.0.1 at 2013-10-23 18:18:31 +0800
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (17.3ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 52ms (Views: 48.7ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-23 18:18:33 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.erb (0.9ms)
+  Rendered account/new.html.erb within layouts/application (27.7ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 67ms (Views: 64.9ms)
+
+
+Started POST "/account" for 127.0.0.1 at 2013-10-23 18:18:53 +0800
+Processing by AccountController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"aefadf", "name"=>"asdfasdf", "email"=>"Scdasd", "email_public"=>"1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"提交注册信息"}
+Unpermitted parameters: login, email
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"email"=>"scdasd"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4530ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"login"=>/\Aaefadf$/i} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.7510ms[0m)
+  Rendered shared/_error_messages.html.erb (1.6ms)
+  Rendered devise/shared/_links.erb (1.3ms)
+  Rendered account/new.html.erb within layouts/application (117.8ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 364ms (Views: 150.4ms)
+
+
+Started GET "/account/password/new" for 127.0.0.1 at 2013-10-23 18:18:59 +0800
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (11.9ms)
+  Rendered common/_user_nav.html.erb (1.4ms)
+Completed 200 OK in 70ms (Views: 66.8ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:19:04 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4880ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3877ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3805ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (1.6ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4530ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.5ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4165ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2241ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.5674ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.3ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (32.5ms)
+  Rendered topics/index.html.erb within layouts/application (56.3ms)
+  Rendered common/_user_nav.html.erb (0.7ms)
+Completed 200 OK in 96ms (Views: 90.7ms)
+
+
+Started GET "/wiki" for 127.0.0.1 at 2013-10-23 18:19:06 +0800
+Processing by PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"faye_server"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5507ms[0m)
+  Rendered pages/index.html.erb within layouts/application (1.6ms)
+  Rendered common/_user_nav.html.erb (0.7ms)
+Completed 200 OK in 69ms (Views: 58.5ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:19:07 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4780ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4146ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4766ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.5ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (1.2ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4408ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.3ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4690ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2613ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.4320ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.2ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (26.0ms)
+  Rendered topics/index.html.erb within layouts/application (47.0ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 81ms (Views: 75.9ms)
+
+
+Started GET "/wiki" for 127.0.0.1 at 2013-10-23 18:19:09 +0800
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.7ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 36ms (Views: 29.0ms)
+
+
+Started GET "/sites" for 127.0.0.1 at 2013-10-23 18:19:10 +0800
+Processing by SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.6332ms[0m)
+  Rendered sites/index.html.erb within layouts/application (43.4ms)
+  Rendered common/_user_nav.html.erb (1.2ms)
+Completed 200 OK in 299ms (Views: 221.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-23 18:19:12 +0800
+Processing by UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.5217ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"replies_count"=>-1, "topics_count"=>-1}} [0mflags=[:slave_ok] limit=100 skip=0 batch_size=nil fields=nil ([32m0.6175ms[0m)
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 68ms (Views: 63.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 18:19:16 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6073ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3946ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3741ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  Rendered home/index.html.erb within layouts/application (20.6ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 50.0ms)
+
+
+Started GET "/account/sign_in" for 127.0.0.1 at 2013-10-23 18:19:18 +0800
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (16.2ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 51ms (Views: 49.0ms)
+
+
+Started POST "/account/sign_in" for 127.0.0.1 at 2013-10-23 18:19:24 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5915ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"email"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.3173ms[0m)
+Completed 401 Unauthorized in 4ms
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+Unpermitted parameters: login, remember_me
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (14.6ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 166ms (Views: 46.3ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-23 18:19:35 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.erb (0.9ms)
+  Rendered account/new.html.erb within layouts/application (24.5ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 59ms (Views: 56.4ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:19:51 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4945ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3879ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.5913ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.5ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.9ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4463ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.4ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3710ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2327ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2761ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.4ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (27.9ms)
+  Rendered topics/index.html.erb within layouts/application (50.6ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 86ms (Views: 81.0ms)
+
+
+Started GET "/topics?page=2" for 127.0.0.1 at 2013-10-23 18:19:53 +0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=15 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4637ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4261ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3858ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.8ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4342ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.3ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3555ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2315ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.4196ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.3ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (24.4ms)
+  Rendered topics/index.html.erb within layouts/application (48.6ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 83ms (Views: 78.7ms)
+
+
+Started GET "/topics?page=100" for 127.0.0.1 at 2013-10-23 18:19:55 +0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"100"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=1485 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6392ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4497ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3233ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.1ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.7ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4728ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.3ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3717ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2370ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2146ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.3ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (24.4ms)
+  Rendered topics/index.html.erb within layouts/application (47.5ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 81ms (Views: 75.3ms)
+
+
+Started GET "/topics?page=99" for 127.0.0.1 at 2013-10-23 18:19:57 +0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"99"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=1470 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4966ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3939ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3583ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.1ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.7ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4294ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.3ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3707ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2301ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2341ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.2ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (22.6ms)
+  Rendered topics/index.html.erb within layouts/application (42.2ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 78ms (Views: 72.8ms)
+
+
+Started GET "/topics?page=98" for 127.0.0.1 at 2013-10-23 18:19:58 +0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"98"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=1455 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5302ms[0m)
+  Rendered topics/_node_info.html.erb (0.8ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5116ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4928ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.6ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (1.2ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4485ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.4ms)
+  Rendered app/cells/topics/tips.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3860ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2558ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.3169ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.2ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (30.7ms)
+  Rendered topics/index.html.erb within layouts/application (53.0ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 88ms (Views: 82.9ms)
+
+
+Started GET "/topics?page=1" for 127.0.0.1 at 2013-10-23 18:19:59 +0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4535ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4358ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3946ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.8ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.6735ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.9ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3457ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2654ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2685ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.2ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (26.9ms)
+  Rendered topics/index.html.erb within layouts/application (46.7ms)
+  Rendered common/_user_nav.html.erb (0.7ms)
+Completed 200 OK in 187ms (Views: 182.9ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-23 18:20:01 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5202ms[0m)
+  Rendered topics/_node_info.html.erb (0.6ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4625ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.5ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.5026ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.8ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (0.9ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4201ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.4ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3710ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2565ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.4292ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.2ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (25.5ms)
+  Rendered topics/index.html.erb within layouts/application (52.7ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 86ms (Views: 81.4ms)
+
+
+Started GET "/topics/no_reply" for 127.0.0.1 at 2013-10-23 18:20:02 +0800
+Processing by TopicsController#no_reply as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "replies_count"=>0}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4628ms[0m)
+  Rendered topics/_node_info.html.erb (1.1ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (1.4ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (4.4ms)
+  Rendered topics/index.html.erb within layouts/application (37.5ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 70ms (Views: 66.7ms)
+
+
+Started GET "/topics/1" for 127.0.0.1 at 2013-10-23 18:20:05 +0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"deleted_at"=>nil, "_id"=>1} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields={"body"=>0} ([32m0.5960ms[0m)
+Completed 404 Not Found in 5ms
+
+Mongoid::Errors::DocumentNotFound (
+Problem:
+  Document(s) not found for class Topic with id(s) 1.
+Summary:
+  When calling Topic.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): 1 ... (1 total) and the following ids were not found: 1.
+Resolution:
+  Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples.):
+  app/controllers/topics_controller.rb:59:in `show'
+
+
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.4ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (62.4ms)
+
+
+Started GET "/topics/1" for 127.0.0.1 at 2013-10-23 18:20:05 +0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"deleted_at"=>nil, "_id"=>1} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields={"body"=>0} ([32m0.5593ms[0m)
+Completed 404 Not Found in 4ms
+
+Mongoid::Errors::DocumentNotFound (
+Problem:
+  Document(s) not found for class Topic with id(s) 1.
+Summary:
+  When calling Topic.find with an id or array of ids, each parameter must match a document in the database or this error will be raised. The search was for the id(s): 1 ... (1 total) and the following ids were not found: 1.
+Resolution:
+  Search for an id that is in the database or set the Mongoid.raise_not_found_error configuration option to false, which will cause a nil to be returned instead of raising this error when searching for a single id, or only the matched documents when searching for multiples.):
+  app/controllers/topics_controller.rb:59:in `show'
+
+
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/topics/no_reply" for 127.0.0.1 at 2013-10-23 18:20:13 +0800
+Processing by TopicsController#no_reply as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "replies_count"=>0}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5641ms[0m)
+  Rendered topics/_node_info.html.erb (1.7ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  Rendered topics/_sidebar_box_new_topic.html.erb (1.7ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (3.6ms)
+  Rendered topics/index.html.erb within layouts/application (12.1ms)
+  Rendered common/_user_nav.html.erb (0.6ms)
+Completed 200 OK in 52ms (Views: 47.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:25:16 +0800
+Processing by HomeController#index as HTML
+Dalli::Server#connect 127.0.0.1:11211
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m75.4814ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m95.1018ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m1.0748ms[0m)
+  Rendered topics/_topic.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4699ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (641.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4623ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (2.3ms)
+  Rendered home/index.html.erb within layouts/application (1033.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"custom_head_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6301ms[0m)
+  Rendered common/_user_nav.html.erb (15.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"footer_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7734ms[0m)
+Completed 200 OK in 2023ms (Views: 1919.1ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-24 09:25:26 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (21.5ms)
+  Rendered devise/shared/_links.erb (3.1ms)
+  Rendered account/new.html.erb within layouts/application (241.4ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 315ms (Views: 297.3ms)
+
+
+Started POST "/account" for 127.0.0.1 at 2013-10-24 09:26:03 +0800
+Processing by AccountController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "name"=>"admin", "email"=>"admin@admin.com", "email_public"=>"0", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"提交注册信息"}
+Unpermitted parameters: login, email
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"email"=>"admin@admin.com"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5281ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"login"=>/\Aadmin$/i} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.5205ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:findAndModify=>"mongoid.auto_increment_ids", :query=>{:_id=>:users}, :update=>{"$inc"=>{:c=>1}}, :upsert=>true, :new=>true} [0m([32m1.5397ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 INSERT       database=ruby_china_dev collection=users documents=[{"email"=>"admin@admin.com", "encrypted_password"=>"$2a$10$GcT5d0N8.E.KpcWhbUkenelHD8Hp/Yyu4Cu3zuxqJD/CcLOcn8zq6", "sign_in_count"=>0, "state"=>1, "topics_count"=>0, "replies_count"=>0, "favorite_topic_ids"=>[], "name"=>"admin", "email_public"=>false, "verified"=>false, "guest"=>false, "login"=>"admin", "email_md5"=>"64e1b8d34f425d19e1ee2ea7236d3028", "updated_at"=>2013-10-24 01:26:03 UTC, "created_at"=>2013-10-24 01:26:03 UTC, "_id"=>1}] flags=[] ([32m0.2155ms[0m)
+Completed 500 Internal Server Error in 562ms
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (ECONNREFUSED)):
+  app/models/user.rb:177:in `send_welcome_mail'
+  app/controllers/account_controller.rb:18:in `create'
+
+
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /home/santander/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.3ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-24 09:26:17 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.erb (1.0ms)
+  Rendered account/new.html.erb within layouts/application (23.7ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 64ms (Views: 60.9ms)
+
+
+Started GET "/account/sign_up" for 127.0.0.1 at 2013-10-24 09:30:33 +0800
+Processing by AccountController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered account/new.html.erb within layouts/application (31.2ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 70ms (Views: 67.6ms)
+
+
+Started POST "/account" for 127.0.0.1 at 2013-10-24 09:30:51 +0800
+Processing by AccountController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "name"=>"admin", "email"=>"admin@admin.com", "email_public"=>"1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"提交注册信息"}
+Unpermitted parameters: login, email
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m0.4227ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"email"=>"admin@admin.com"} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.3388ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"login"=>/\Aadmin$/i} [0mflags=[] limit=-1 skip=0 batch_size=nil fields={:_id=>1} ([32m0.4590ms[0m)
+  Rendered shared/_error_messages.html.erb (1.3ms)
+  Rendered devise/shared/_links.erb (1.6ms)
+  Rendered account/new.html.erb within layouts/application (26.9ms)
+  Rendered common/_user_nav.html.erb (0.7ms)
+Completed 200 OK in 199ms (Views: 60.8ms)
+
+
+Started GET "/account/sign_in" for 127.0.0.1 at 2013-10-24 09:30:59 +0800
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (17.0ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 63ms (Views: 59.7ms)
+
+
+Started POST "/account/sign_in" for 127.0.0.1 at 2013-10-24 09:31:06 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8242ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 UPDATE       database=ruby_china_dev collection=users selector=[34m{"_id"=>1} [0mupdate={"$set"=>{"last_sign_in_at"=>2013-10-24 01:31:06 UTC, "current_sign_in_at"=>2013-10-24 01:31:06 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-10-24 01:31:06 UTC}} flags=[] ([32m0.2513ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 UPDATE       database=ruby_china_dev collection=users selector=[34m{"_id"=>1} [0mupdate={"$set"=>{"private_token"=>"8ee6a679b751dee10551:1", "updated_at"=>2013-10-24 01:31:06 UTC}} flags=[] ([32m0.1178ms[0m)
+Redirected to http://localhost:3000/account
+Completed 302 Found in 126ms
+
+
+Started GET "/account" for 127.0.0.1 at 2013-10-24 09:31:06 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"account"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^account$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5496ms[0m)
+  Rendered errors/404.html.erb within layouts/application (0.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6042ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4628ms[0m)
+  Rendered common/_user_nav.html.erb (9.0ms)
+Filter chain halted as :find_user rendered or redirected
+Completed 404 Not Found in 64ms (Views: 60.2ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-24 09:31:14 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"node_ids_hide_in_topics_index"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8159ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.3772ms[0m)
+  Rendered topics/_node_info.html.erb (1.8ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4759ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3767ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6738ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"new_topic_dropdown_node_ids"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.3741ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.2222ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (9.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"newbie_notices"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5462ms[0m)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (3.5ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.5703ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (2.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"tips"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8204ms[0m)
+  Rendered app/cells/topics/tips.html.erb (0.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"topic_index_sidebar_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7815ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3636ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2637ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2806ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (1.0ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (66.1ms)
+  Rendered topics/index.html.erb within layouts/application (96.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5004ms[0m)
+  Rendered common/_user_nav.html.erb (5.8ms)
+Completed 200 OK in 163ms (Views: 145.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-24 09:31:18 +0800
+Processing by UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4542ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"replies_count"=>-1, "topics_count"=>-1}} [0mflags=[:slave_ok] limit=100 skip=0 batch_size=nil fields=nil ([32m1.2093ms[0m)
+  Rendered users/index.html.erb within layouts/application (58.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5012ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4044ms[0m)
+  Rendered common/_user_nav.html.erb (5.2ms)
+Completed 200 OK in 118ms (Views: 114.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-10-24 09:31:21 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"admin"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m1.0176ms[0m)
+  Rendered users/_menu.html.erb (2.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8008ms[0m)
+  Rendered users/_info.html.erb (28.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "user_id"=>1, "node_id"=>{"$nin"=>[21, 22, 23, 31, 49, 51, 57, 25]}}, "$orderby"=>{"likes_count"=>-1, "_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.5062ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=replies selector=[34m{"$query"=>{"deleted_at"=>nil, "user_id"=>1}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=10 skip=0 batch_size=nil fields={"topic_id"=>1, "body_html"=>1, "created_at"=>1} ([32m0.5081ms[0m)
+  Rendered users/_replies.html.erb (2.5ms)
+  Rendered users/_sidebar.html.erb (1.4ms)
+  Rendered users/show.html.erb within layouts/application (159.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5653ms[0m)
+  Rendered common/_user_nav.html.erb (4.8ms)
+Completed 200 OK in 220ms (Views: 211.6ms)
+
+
+Started GET "/cpanel/users/1/edit" for 127.0.0.1 at 2013-10-24 09:31:24 +0800
+Processing by Cpanel::UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6411ms[0m)
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered cpanel/users/_form.html.erb (222.4ms)
+  Rendered cpanel/users/edit.html.erb within layouts/cpanel (249.2ms)
+Completed 200 OK in 432ms (Views: 427.1ms)
+
+
+Started GET "/cpanel/users/1/edit" for 127.0.0.1 at 2013-10-24 09:31:24 +0800
+Processing by Cpanel::UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6139ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered cpanel/users/_form.html.erb (61.1ms)
+  Rendered cpanel/users/edit.html.erb within layouts/cpanel (63.3ms)
+Completed 200 OK in 87ms (Views: 83.4ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:31:34 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5875ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.5269ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2253ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.2499ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.2625ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.3023ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (6.7ms)
+Completed 200 OK in 64ms (Views: 59.2ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:31:36 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8717ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.4799ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4046ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.4697ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.4547ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.2956ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (6.9ms)
+Completed 200 OK in 33ms (Views: 29.0ms)
+
+
+Started GET "/cpanel/site_configs" for 127.0.0.1 at 2013-10-24 09:31:39 +0800
+Processing by Cpanel::SiteConfigsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5727ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.9966ms[0m)
+  Rendered cpanel/site_configs/index.html.erb within layouts/cpanel (8.2ms)
+Completed 200 OK in 56ms (Views: 51.1ms)
+
+
+Started GET "/cpanel/users" for 127.0.0.1 at 2013-10-24 09:31:42 +0800
+Processing by Cpanel::UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5128ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2723ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.4747ms[0m)
+  Rendered cpanel/users/index.html.erb within layouts/cpanel (2.0ms)
+Completed 200 OK in 55ms (Views: 50.1ms)
+
+
+Started GET "/cpanel/sections" for 127.0.0.1 at 2013-10-24 09:31:43 +0800
+Processing by Cpanel::SectionsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6371ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.6073ms[0m)
+  Rendered cpanel/sections/index.html.erb within layouts/cpanel (4.0ms)
+Completed 200 OK in 54ms (Views: 49.5ms)
+
+
+Started GET "/cpanel/nodes" for 127.0.0.1 at 2013-10-24 09:31:44 +0800
+Processing by Cpanel::NodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6080ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4594ms[0m)
+  Rendered cpanel/nodes/index.html.erb within layouts/cpanel (3.4ms)
+Completed 200 OK in 39ms (Views: 34.6ms)
+
+
+Started GET "/cpanel/pages" for 127.0.0.1 at 2013-10-24 09:31:45 +0800
+Processing by Cpanel::PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5929ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"pages", :query=>{}} [0m([32m0.5071ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=pages selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3815ms[0m)
+  Rendered cpanel/pages/index.html.erb within layouts/cpanel (1.4ms)
+Completed 200 OK in 143ms (Views: 56.3ms)
+
+
+Started GET "/cpanel/topics" for 127.0.0.1 at 2013-10-24 09:31:46 +0800
+Processing by Cpanel::TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7052ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.4101ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3843ms[0m)
+  Rendered cpanel/topics/index.html.erb within layouts/cpanel (2.1ms)
+Completed 200 OK in 62ms (Views: 56.1ms)
+
+
+Started GET "/cpanel/replies" for 127.0.0.1 at 2013-10-24 09:31:47 +0800
+Processing by Cpanel::RepliesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5770ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.3431ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=replies selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3221ms[0m)
+  Rendered cpanel/replies/index.html.erb within layouts/cpanel (1.8ms)
+Completed 200 OK in 60ms (Views: 54.5ms)
+
+
+Started GET "/cpanel/comments" for 127.0.0.1 at 2013-10-24 09:31:48 +0800
+Processing by Cpanel::CommentsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5722ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"comments", :query=>{"deleted_at"=>nil}} [0m([32m0.4759ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=comments selector=[34m{"$query"=>{"deleted_at"=>nil}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3352ms[0m)
+  Rendered cpanel/comments/index.html.erb within layouts/cpanel (1.3ms)
+Completed 200 OK in 155ms (Views: 66.7ms)
+
+
+Started GET "/cpanel/photos" for 127.0.0.1 at 2013-10-24 09:31:49 +0800
+Processing by Cpanel::PhotosController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5677ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"photos", :query=>{}} [0m([32m0.4373ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=photos selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3183ms[0m)
+  Rendered cpanel/photos/index.html.erb within layouts/cpanel (1.7ms)
+Completed 200 OK in 50ms (Views: 43.2ms)
+
+
+Started GET "/cpanel/site_nodes" for 127.0.0.1 at 2013-10-24 09:31:50 +0800
+Processing by Cpanel::SiteNodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6342ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"site_nodes", :query=>{}} [0m([32m0.6402ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3016ms[0m)
+  Rendered cpanel/site_nodes/_base.html.erb (1.0ms)
+  Rendered cpanel/site_nodes/index.html.erb within layouts/cpanel (8.7ms)
+Completed 200 OK in 121ms (Views: 44.8ms)
+
+
+Started GET "/cpanel/sites" for 127.0.0.1 at 2013-10-24 09:31:52 +0800
+Processing by Cpanel::SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5686ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"sites", :query=>{}} [0m([32m0.5078ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sites selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3266ms[0m)
+  Rendered cpanel/sites/_base.html.erb (0.8ms)
+  Rendered cpanel/sites/index.html.erb within layouts/cpanel (5.7ms)
+Completed 200 OK in 172ms (Views: 76.1ms)
+
+
+Started GET "/cpanel/locations" for 127.0.0.1 at 2013-10-24 09:31:52 +0800
+Processing by Cpanel::LocationsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5832ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"locations", :query=>{}} [0m([32m0.3641ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3226ms[0m)
+  Rendered cpanel/locations/_base.html.erb (1.1ms)
+  Rendered cpanel/locations/index.html.erb within layouts/cpanel (19.8ms)
+Completed 200 OK in 87ms (Views: 80.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:31:55 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5133ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4191ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3471ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.1ms)
+  Rendered home/index.html.erb within layouts/application (17.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4988ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.2713ms[0m)
+  Rendered common/_user_nav.html.erb (5.2ms)
+Completed 200 OK in 54ms (Views: 51.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:31:56 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4282ms[0m)
+  Rendered topics/_topic.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3972ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3314ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.1ms)
+  Rendered home/index.html.erb within layouts/application (17.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5016ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.2887ms[0m)
+  Rendered common/_user_nav.html.erb (4.6ms)
+Completed 200 OK in 52ms (Views: 49.6ms)
+
+
+Started DELETE "/account/sign_out" for 127.0.0.1 at 2013-10-24 09:32:02 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.9665ms[0m)
+Redirected to http://localhost:3000/
+Completed 302 Found in 39ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:32:02 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5088ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3958ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3655ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  Rendered home/index.html.erb within layouts/application (16.0ms)
+  Rendered common/_user_nav.html.erb (0.9ms)
+Completed 200 OK in 47ms (Views: 44.8ms)
+
+
+Started GET "/account/sign_in" for 127.0.0.1 at 2013-10-24 09:32:06 +0800
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (17.3ms)
+  Rendered common/_user_nav.html.erb (0.8ms)
+Completed 200 OK in 52ms (Views: 48.6ms)
+
+
+Started POST "/account/sign_in" for 127.0.0.1 at 2013-10-24 09:32:14 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"login"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m1.0586ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 UPDATE       database=ruby_china_dev collection=users selector=[34m{"_id"=>1} [0mupdate={"$set"=>{"current_sign_in_at"=>2013-10-24 01:32:15 UTC, "sign_in_count"=>2, "updated_at"=>2013-10-24 01:32:15 UTC}} flags=[] ([32m0.1945ms[0m)
+Redirected to http://localhost:3000/
+Completed 302 Found in 124ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:32:15 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5913ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4294ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4249ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.4ms)
+  Rendered home/index.html.erb within layouts/application (20.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7756ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.6688ms[0m)
+  Rendered common/_user_nav.html.erb (8.9ms)
+Completed 200 OK in 66ms (Views: 64.0ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:32:22 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5918ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.3941ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2360ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.4001ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.4408ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.3188ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (6.1ms)
+Completed 200 OK in 33ms (Views: 29.7ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:32:22 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5517ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.5219ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2489ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.2840ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.2995ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.2804ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (7.0ms)
+Completed 200 OK in 33ms (Views: 30.3ms)
+
+
+Started GET "/cpanel/site_configs" for 127.0.0.1 at 2013-10-24 09:32:26 +0800
+Processing by Cpanel::SiteConfigsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5796ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.6194ms[0m)
+  Rendered cpanel/site_configs/index.html.erb within layouts/cpanel (5.6ms)
+Completed 200 OK in 29ms (Views: 25.6ms)
+
+
+Started GET "/cpanel/site_configs/1/edit" for 127.0.0.1 at 2013-10-24 09:32:35 +0800
+Processing by Cpanel::SiteConfigsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7648ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"_id"=>1} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4461ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered cpanel/site_configs/_form.html.erb (12.4ms)
+  Rendered cpanel/site_configs/edit.html.erb within layouts/cpanel (36.8ms)
+Completed 200 OK in 106ms (Views: 99.9ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:32:39 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5760ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.3824ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2542ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.2952ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.2966ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.3347ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (5.7ms)
+Completed 200 OK in 31ms (Views: 27.7ms)
+
+
+Started GET "/cpanel/site_configs" for 127.0.0.1 at 2013-10-24 09:32:43 +0800
+Processing by Cpanel::SiteConfigsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5753ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5822ms[0m)
+  Rendered cpanel/site_configs/index.html.erb within layouts/cpanel (5.2ms)
+Completed 200 OK in 30ms (Views: 26.8ms)
+
+
+Started GET "/cpanel/users" for 127.0.0.1 at 2013-10-24 09:32:50 +0800
+Processing by Cpanel::UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7498ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.5295ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m1.1971ms[0m)
+  Rendered cpanel/users/index.html.erb within layouts/cpanel (0.9ms)
+Completed 200 OK in 29ms (Views: 21.5ms)
+
+
+Started GET "/cpanel/users/1/edit" for 127.0.0.1 at 2013-10-24 09:32:54 +0800
+Processing by Cpanel::UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5350ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered cpanel/users/_form.html.erb (62.0ms)
+  Rendered cpanel/users/edit.html.erb within layouts/cpanel (65.7ms)
+Completed 200 OK in 197ms (Views: 193.9ms)
+
+
+Started GET "/cpanel/users" for 127.0.0.1 at 2013-10-24 09:32:57 +0800
+Processing by Cpanel::UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5469ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2372ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.4902ms[0m)
+  Rendered cpanel/users/index.html.erb within layouts/cpanel (0.7ms)
+Completed 200 OK in 28ms (Views: 21.8ms)
+
+
+Started GET "/cpanel/sections" for 127.0.0.1 at 2013-10-24 09:32:58 +0800
+Processing by Cpanel::SectionsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6189ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3264ms[0m)
+  Rendered cpanel/sections/index.html.erb within layouts/cpanel (1.5ms)
+Completed 200 OK in 26ms (Views: 22.9ms)
+
+
+Started GET "/cpanel/nodes" for 127.0.0.1 at 2013-10-24 09:33:00 +0800
+Processing by Cpanel::NodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4990ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3221ms[0m)
+  Rendered cpanel/nodes/index.html.erb within layouts/cpanel (1.4ms)
+Completed 200 OK in 32ms (Views: 29.2ms)
+
+
+Started GET "/cpanel/sections" for 127.0.0.1 at 2013-10-24 09:33:00 +0800
+Processing by Cpanel::SectionsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7000ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3850ms[0m)
+  Rendered cpanel/sections/index.html.erb within layouts/cpanel (1.6ms)
+Completed 200 OK in 27ms (Views: 23.3ms)
+
+
+Started GET "/cpanel/sections/new" for 127.0.0.1 at 2013-10-24 09:33:04 +0800
+Processing by Cpanel::SectionsController#new as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5147ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered cpanel/sections/_form.html.erb (12.5ms)
+  Rendered cpanel/sections/new.html.erb within layouts/cpanel (29.0ms)
+Completed 200 OK in 70ms (Views: 67.4ms)
+
+
+Started GET "/cpanel" for 127.0.0.1 at 2013-10-24 09:33:08 +0800
+Processing by Cpanel::HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6185ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.4108ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.2153ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil}} [0m([32m0.2398ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{"deleted_at"=>nil}} [0m([32m0.2403ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{}} [0m([32m0.3064ms[0m)
+  Rendered cpanel/home/index.html.erb within layouts/cpanel (5.0ms)
+Completed 200 OK in 31ms (Views: 26.7ms)
+
+
+Started GET "/cpanel/users" for 127.0.0.1 at 2013-10-24 09:33:15 +0800
+Processing by Cpanel::UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6742ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.5155ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.4621ms[0m)
+  Rendered cpanel/users/index.html.erb within layouts/cpanel (0.8ms)
+Completed 200 OK in 32ms (Views: 26.0ms)
+
+
+Started GET "/cpanel/sections" for 127.0.0.1 at 2013-10-24 09:33:16 +0800
+Processing by Cpanel::SectionsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5238ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3970ms[0m)
+  Rendered cpanel/sections/index.html.erb within layouts/cpanel (1.7ms)
+Completed 200 OK in 25ms (Views: 22.6ms)
+
+
+Started GET "/cpanel/nodes" for 127.0.0.1 at 2013-10-24 09:33:33 +0800
+Processing by Cpanel::NodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5159ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3810ms[0m)
+  Rendered cpanel/nodes/index.html.erb within layouts/cpanel (1.6ms)
+Completed 200 OK in 25ms (Views: 22.2ms)
+
+
+Started GET "/cpanel/nodes/new" for 127.0.0.1 at 2013-10-24 09:33:36 +0800
+Processing by Cpanel::NodesController#new as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5558ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.6571ms[0m)
+  Rendered cpanel/nodes/_form.html.erb (25.0ms)
+  Rendered cpanel/nodes/new.html.erb within layouts/cpanel (91.7ms)
+Completed 200 OK in 249ms (Views: 246.2ms)
+
+
+Started GET "/cpanel/nodes" for 127.0.0.1 at 2013-10-24 09:33:55 +0800
+Processing by Cpanel::NodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8352ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4292ms[0m)
+  Rendered cpanel/nodes/index.html.erb within layouts/cpanel (1.7ms)
+Completed 200 OK in 28ms (Views: 23.6ms)
+
+
+Started GET "/cpanel/pages" for 127.0.0.1 at 2013-10-24 09:33:57 +0800
+Processing by Cpanel::PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5252ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"pages", :query=>{}} [0m([32m0.3133ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=pages selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3281ms[0m)
+  Rendered cpanel/pages/index.html.erb within layouts/cpanel (0.2ms)
+Completed 200 OK in 26ms (Views: 21.6ms)
+
+
+Started GET "/cpanel/topics" for 127.0.0.1 at 2013-10-24 09:33:59 +0800
+Processing by Cpanel::TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8655ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.4926ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.5283ms[0m)
+  Rendered cpanel/topics/index.html.erb within layouts/cpanel (0.9ms)
+Completed 200 OK in 33ms (Views: 26.8ms)
+
+
+Started GET "/cpanel/pages" for 127.0.0.1 at 2013-10-24 09:34:01 +0800
+Processing by Cpanel::PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5629ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"pages", :query=>{}} [0m([32m0.3362ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=pages selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.4764ms[0m)
+  Rendered cpanel/pages/index.html.erb within layouts/cpanel (0.2ms)
+Completed 200 OK in 28ms (Views: 23.7ms)
+
+
+Started GET "/cpanel/topics" for 127.0.0.1 at 2013-10-24 09:34:04 +0800
+Processing by Cpanel::TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6125ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.4857ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.4394ms[0m)
+  Rendered cpanel/topics/index.html.erb within layouts/cpanel (0.3ms)
+Completed 200 OK in 27ms (Views: 21.2ms)
+
+
+Started GET "/cpanel/replies" for 127.0.0.1 at 2013-10-24 09:34:05 +0800
+Processing by Cpanel::RepliesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6576ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.3548ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=replies selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.2701ms[0m)
+  Rendered cpanel/replies/index.html.erb within layouts/cpanel (0.2ms)
+Completed 200 OK in 26ms (Views: 21.2ms)
+
+
+Started GET "/cpanel/comments" for 127.0.0.1 at 2013-10-24 09:34:05 +0800
+Processing by Cpanel::CommentsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5391ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"comments", :query=>{"deleted_at"=>nil}} [0m([32m0.3529ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=comments selector=[34m{"$query"=>{"deleted_at"=>nil}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3138ms[0m)
+  Rendered cpanel/comments/index.html.erb within layouts/cpanel (0.1ms)
+Completed 200 OK in 25ms (Views: 20.3ms)
+
+
+Started GET "/cpanel/photos" for 127.0.0.1 at 2013-10-24 09:34:07 +0800
+Processing by Cpanel::PhotosController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6490ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"photos", :query=>{}} [0m([32m0.3259ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=photos selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3107ms[0m)
+  Rendered cpanel/photos/index.html.erb within layouts/cpanel (0.4ms)
+Completed 200 OK in 26ms (Views: 21.6ms)
+
+
+Started GET "/cpanel/site_nodes" for 127.0.0.1 at 2013-10-24 09:34:08 +0800
+Processing by Cpanel::SiteNodesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5016ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"site_nodes", :query=>{}} [0m([32m0.3378ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.3557ms[0m)
+  Rendered cpanel/site_nodes/_base.html.erb (0.2ms)
+  Rendered cpanel/site_nodes/index.html.erb within layouts/cpanel (1.3ms)
+Completed 200 OK in 26ms (Views: 21.3ms)
+
+
+Started GET "/cpanel/sites" for 127.0.0.1 at 2013-10-24 09:34:09 +0800
+Processing by Cpanel::SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5782ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"sites", :query=>{}} [0m([32m0.3529ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sites selector=[34m{"$query"=>{}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.2503ms[0m)
+  Rendered cpanel/sites/_base.html.erb (0.2ms)
+  Rendered cpanel/sites/index.html.erb within layouts/cpanel (1.2ms)
+Completed 200 OK in 26ms (Views: 21.5ms)
+
+
+Started GET "/cpanel/locations" for 127.0.0.1 at 2013-10-24 09:34:10 +0800
+Processing by Cpanel::LocationsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.8948ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"locations", :query=>{}} [0m([32m0.4075ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.4239ms[0m)
+  Rendered cpanel/locations/_base.html.erb (0.1ms)
+  Rendered cpanel/locations/index.html.erb within layouts/cpanel (1.3ms)
+Completed 200 OK in 28ms (Views: 21.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:34:13 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4966ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4232ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.4573ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.6ms)
+  Rendered home/index.html.erb within layouts/application (23.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6135ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5212ms[0m)
+  Rendered common/_user_nav.html.erb (7.4ms)
+Completed 200 OK in 69ms (Views: 64.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:34:13 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.7339ms[0m)
+  Rendered topics/_topic.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.6039ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (2.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3970ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.3ms)
+  Rendered home/index.html.erb within layouts/application (25.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6156ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3877ms[0m)
+  Rendered common/_user_nav.html.erb (5.9ms)
+Completed 200 OK in 170ms (Views: 167.5ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-24 09:34:31 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6137ms[0m)
+  Rendered topics/_node_info.html.erb (0.8ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3946ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3734ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4218ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.2747ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (3.2ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (1.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4282ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.2ms)
+  Rendered app/cells/topics/tips.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4568ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.4263ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.4132ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.4ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (33.1ms)
+  Rendered topics/index.html.erb within layouts/application (54.5ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4146ms[0m)
+  Rendered common/_user_nav.html.erb (3.5ms)
+Completed 200 OK in 97ms (Views: 92.5ms)
+
+
+Started GET "/topics/no_reply" for 127.0.0.1 at 2013-10-24 09:34:33 +0800
+Processing by TopicsController#no_reply as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "replies_count"=>0}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m1.3518ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7892ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.3579ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (4.7ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (7.4ms)
+  Rendered topics/index.html.erb within layouts/application (52.7ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4213ms[0m)
+  Rendered common/_user_nav.html.erb (3.8ms)
+Completed 200 OK in 89ms (Views: 84.4ms)
+
+
+Started GET "/topics/last" for 127.0.0.1 at 2013-10-24 09:34:35 +0800
+Processing by TopicsController#recent as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5226ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4909ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.2904ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (3.5ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (4.7ms)
+  Rendered topics/index.html.erb within layouts/application (11.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4053ms[0m)
+  Rendered common/_user_nav.html.erb (3.5ms)
+Completed 200 OK in 47ms (Views: 42.9ms)
+
+
+Started GET "/topics/no_reply" for 127.0.0.1 at 2013-10-24 09:34:36 +0800
+Processing by TopicsController#no_reply as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "replies_count"=>0}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.5145ms[0m)
+  Rendered topics/_node_info.html.erb (0.7ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5994ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.3347ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (4.3ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (5.8ms)
+  Rendered topics/index.html.erb within layouts/application (13.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5033ms[0m)
+  Rendered common/_user_nav.html.erb (4.1ms)
+Completed 200 OK in 165ms (Views: 161.1ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2013-10-24 09:34:38 +0800
+Processing by TopicsController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "node_id"=>{"$nin"=>[]}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4551ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5920ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.5264ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.5ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5651ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.2937ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (3.4ms)
+  Rendered topics/_sidebar_box_newbie_info.html.erb (1.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "suggested_at"=>{"$ne"=>nil}}, "$orderby"=>{"suggested_at"=>-1}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.4478ms[0m)
+  Rendered app/cells/topics/sidebar_suggest_topics.html.erb (1.4ms)
+  Rendered app/cells/topics/tips.html.erb (0.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3076ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{}} [0m([32m0.2463ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"replies", :query=>{}} [0m([32m0.2842ms[0m)
+  Rendered app/cells/topics/sidebar_statistics.html.erb (0.4ms)
+  Rendered topics/_sidebar_for_topic_index.html.erb (30.4ms)
+  Rendered topics/index.html.erb within layouts/application (57.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5143ms[0m)
+  Rendered common/_user_nav.html.erb (7.3ms)
+Completed 200 OK in 107ms (Views: 102.4ms)
+
+
+Started GET "/topics/popular" for 127.0.0.1 at 2013-10-24 09:34:40 +0800
+Processing by TopicsController#popular as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "likes_count"=>{"$gt"=>5}}, "$orderby"=>{"last_active_mark"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4940ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5424ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.3819ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (3.6ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (5.1ms)
+  Rendered topics/index.html.erb within layouts/application (11.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4077ms[0m)
+  Rendered common/_user_nav.html.erb (3.6ms)
+Completed 200 OK in 47ms (Views: 43.2ms)
+
+
+Started GET "/topics/last" for 127.0.0.1 at 2013-10-24 09:34:41 +0800
+Processing by TopicsController#recent as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=15 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6590ms[0m)
+  Rendered topics/_node_info.html.erb (0.5ms)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4871ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=nodes selector=[34m{"_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=5 skip=0 batch_size=nil fields=nil ([32m0.2871ms[0m)
+  Rendered topics/_sidebar_box_new_topic.html.erb (3.1ms)
+  Rendered topics/_sidebar_for_topic_recent.html.erb (4.2ms)
+  Rendered topics/index.html.erb within layouts/application (10.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5655ms[0m)
+  Rendered common/_user_nav.html.erb (3.5ms)
+Completed 200 OK in 50ms (Views: 46.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-10-24 09:43:22 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"admin"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=admin command=[34m{:ismaster=>1} [0m([32m0.4134ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m1.0147ms[0m)
+  Rendered users/_menu.html.erb (2.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5002ms[0m)
+  Rendered users/_info.html.erb (3.1ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "user_id"=>1, "node_id"=>{"$nin"=>[21, 22, 23, 31, 49, 51, 57, 25]}}, "$orderby"=>{"likes_count"=>-1, "_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields=nil ([32m0.5045ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=replies selector=[34m{"$query"=>{"deleted_at"=>nil, "user_id"=>1}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=10 skip=0 batch_size=nil fields={"topic_id"=>1, "body_html"=>1, "created_at"=>1} ([32m0.3748ms[0m)
+  Rendered users/_replies.html.erb (1.0ms)
+  Rendered users/_sidebar.html.erb (0.1ms)
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3974ms[0m)
+  Rendered common/_user_nav.html.erb (3.3ms)
+Completed 200 OK in 57ms (Views: 45.7ms)
+
+
+Started GET "/admin/topics" for 127.0.0.1 at 2013-10-24 09:43:33 +0800
+Processing by UsersController#topics as HTML
+  Parameters: {"id"=>"admin"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7310ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil, "user_id"=>1}} [0m([32m0.3002ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "user_id"=>1}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3068ms[0m)
+  Rendered users/_menu.html.erb (1.5ms)
+  Rendered users/_topics.html.erb (2.5ms)
+  Rendered users/_sidebar.html.erb (0.2ms)
+  Rendered users/topics.html.erb within layouts/application (27.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5801ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3479ms[0m)
+  Rendered common/_user_nav.html.erb (5.5ms)
+Completed 200 OK in 118ms (Views: 112.2ms)
+
+
+Started GET "/admin/favorites" for 127.0.0.1 at 2013-10-24 09:43:36 +0800
+Processing by UsersController#favorites as HTML
+  Parameters: {"id"=>"admin"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7060ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"topics", :query=>{"deleted_at"=>nil, "_id"=>{"$in"=>[]}}} [0m([32m0.3223ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"deleted_at"=>nil, "_id"=>{"$in"=>[]}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.2375ms[0m)
+  Rendered users/_menu.html.erb (2.1ms)
+  Rendered users/_sidebar.html.erb (0.1ms)
+  Rendered users/favorites.html.erb within layouts/application (6.7ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5856ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3660ms[0m)
+  Rendered common/_user_nav.html.erb (5.6ms)
+Completed 200 OK in 86ms (Views: 80.6ms)
+
+
+Started GET "/admin/notes" for 127.0.0.1 at 2013-10-24 09:43:37 +0800
+Processing by UsersController#notes as HTML
+  Parameters: {"id"=>"admin"}
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"login"=>/^admin$/i}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7219ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notes", :query=>{"user_id"=>1, "publish"=>true}} [0m([32m0.3757ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=notes selector=[34m{"$query"=>{"user_id"=>1, "publish"=>true}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=30 skip=0 batch_size=nil fields=nil ([32m0.3016ms[0m)
+  Rendered users/_menu.html.erb (1.4ms)
+  Rendered users/_sidebar.html.erb (0.1ms)
+  Rendered users/notes.html.erb within layouts/application (4.7ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6001ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3779ms[0m)
+  Rendered common/_user_nav.html.erb (6.6ms)
+Completed 200 OK in 85ms (Views: 77.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:43:43 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.6380ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4280ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3018ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.0ms)
+  Rendered home/index.html.erb within layouts/application (16.9ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.9751ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4773ms[0m)
+  Rendered common/_user_nav.html.erb (7.5ms)
+Completed 200 OK in 166ms (Views: 161.8ms)
+
+
+Started GET "/wiki" for 127.0.0.1 at 2013-10-24 09:43:57 +0800
+Processing by PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5853ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"wiki_index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4153ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"faye_server"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5603ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4056ms[0m)
+  Rendered pages/index.html.erb within layouts/application (1.9ms)
+  Rendered common/_user_nav.html.erb (2.1ms)
+Completed 200 OK in 98ms (Views: 81.7ms)
+
+
+Started GET "/sites" for 127.0.0.1 at 2013-10-24 09:43:59 +0800
+Processing by SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6056ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_configs selector=[34m{"$query"=>{"key"=>"site_index_html"}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.7901ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5083ms[0m)
+  Rendered sites/index.html.erb within layouts/application (13.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.6707ms[0m)
+  Rendered common/_user_nav.html.erb (4.7ms)
+Completed 200 OK in 74ms (Views: 63.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-24 09:44:01 +0800
+Processing by UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.4110ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"replies_count"=>-1, "topics_count"=>-1}} [0mflags=[:slave_ok] limit=100 skip=0 batch_size=nil fields=nil ([32m0.6974ms[0m)
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4966ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3338ms[0m)
+  Rendered common/_user_nav.html.erb (5.6ms)
+Completed 200 OK in 39ms (Views: 36.5ms)
+
+
+Started GET "/sites" for 127.0.0.1 at 2013-10-24 09:44:03 +0800
+Processing by SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6514ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4847ms[0m)
+  Rendered sites/index.html.erb within layouts/application (2.7ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5550ms[0m)
+  Rendered common/_user_nav.html.erb (3.6ms)
+Completed 200 OK in 45ms (Views: 35.3ms)
+
+
+Started GET "/sites/new" for 127.0.0.1 at 2013-10-24 09:44:04 +0800
+Processing by SitesController#new as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5932ms[0m)
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector={} flags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.5226ms[0m)
+  Rendered sites/_form.html.erb (41.5ms)
+  Rendered sites/new.html.erb within layouts/application (69.2ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4847ms[0m)
+  Rendered common/_user_nav.html.erb (4.0ms)
+Completed 200 OK in 169ms (Views: 158.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-24 09:44:17 +0800
+Processing by UsersController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"users", :query=>{}} [0m([32m0.3953ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{}, "$orderby"=>{"replies_count"=>-1, "topics_count"=>-1}} [0mflags=[:slave_ok] limit=100 skip=0 batch_size=nil fields=nil ([32m0.5548ms[0m)
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.4990ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.2978ms[0m)
+  Rendered common/_user_nav.html.erb (4.7ms)
+Completed 200 OK in 42ms (Views: 39.7ms)
+
+
+Started GET "/sites" for 127.0.0.1 at 2013-10-24 09:44:18 +0800
+Processing by SitesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5198ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=site_nodes selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.3395ms[0m)
+  Rendered sites/index.html.erb within layouts/application (2.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.3915ms[0m)
+  Rendered common/_user_nav.html.erb (3.3ms)
+Completed 200 OK in 42ms (Views: 33.2ms)
+
+
+Started GET "/wiki" for 127.0.0.1 at 2013-10-24 09:44:19 +0800
+Processing by PagesController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6013ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.4606ms[0m)
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+  Rendered common/_user_nav.html.erb (2.0ms)
+Completed 200 OK in 150ms (Views: 139.8ms)
+
+
+Started GET "/wiki/new" for 127.0.0.1 at 2013-10-24 09:44:23 +0800
+Processing by PagesController#new as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.6697ms[0m)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered pages/_form.html.erb (19.1ms)
+  Rendered pages/new.html.erb within layouts/application (29.8ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.5860ms[0m)
+  Rendered common/_user_nav.html.erb (4.3ms)
+Completed 200 OK in 118ms (Views: 110.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-24 09:44:33 +0800
+Processing by HomeController#index as HTML
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=topics selector=[34m{"$query"=>{"deleted_at"=>nil, "excellent"=>{"$gte"=>1}}, "$orderby"=>{"_id"=>-1}} [0mflags=[:slave_ok] limit=20 skip=0 batch_size=nil fields={"body"=>0, "body_html"=>0} ([32m0.4680ms[0m)
+  Rendered topics/_topic.html.erb (0.0ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=sections selector=[34m{"$query"=>{}, "$orderby"=>{"sort"=>-1}} [0mflags=[:slave_ok] limit=0 skip=0 batch_size=nil fields=nil ([32m0.4053ms[0m)
+  Rendered app/cells/topics/index_sections.html.erb (1.3ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=locations selector=[34m{"$query"=>{}, "$orderby"=>{"users_count"=>-1}} [0mflags=[:slave_ok] limit=12 skip=0 batch_size=nil fields=nil ([32m0.3457ms[0m)
+  Rendered app/cells/topics/index_locations.html.erb (1.1ms)
+  Rendered home/index.html.erb within layouts/application (16.4ms)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mQUERY[0m        database=ruby_china_dev collection=users selector=[34m{"$query"=>{"_id"=>1}, "$orderby"=>{:_id=>1}} [0mflags=[:slave_ok] limit=-1 skip=0 batch_size=nil fields=nil ([32m0.5174ms[0m)
+  [35mMOPED:[0m 127.0.0.1:27017 [33mCOMMAND[0m      database=ruby_china_dev command=[34m{:count=>"notifications", :query=>{"user_id"=>1, "read"=>false}} [0m([32m0.2856ms[0m)
+  Rendered common/_user_nav.html.erb (5.0ms)
+Completed 200 OK in 52ms (Views: 49.7ms)
